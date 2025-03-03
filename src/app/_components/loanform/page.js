@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, Timestamp } from "firebase/firestore";
 import { db } from '../../../lib/firebase/config';
 import { useRouter } from 'next/navigation';
 
@@ -30,7 +30,8 @@ const MultiStepForm = () => {
         bankname: '',
         bankaddress: '',
         bankaccount: '',
-        status: "Loan Approved"
+        status: "Loan Approved",
+        createdAt: Timestamp.now()
     });
 
     const handleChange = (e) => {
