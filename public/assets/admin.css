@@ -1,0 +1,248 @@
+/*  .fixedHeader {
+            padding: 0;
+            position: fixed;
+            top: 0;
+            transition: all 0.1s;
+            -webkit-transition: all 2s;
+            display: block;
+            
+            .head {
+                position: fixed;
+                width: 100%;
+            }*/
+
+.languageCovert .gt_switcher .gt_selected a:after {
+    background: none;
+    right: 10px !important;
+    content: "\f107" !important;
+    font-family: 'FontAwesome';
+    color: #fff;
+}
+
+.modal {
+    z-index: 99999 !important;
+}
+
+.close:hover {
+    opacity: 1 !important;
+}
+
+@media (max-width:768px) {
+    header {
+        margin: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-sm {
+        width: 420px !important;
+    }
+}
+
+/*.offer-popup {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }*/
+
+.offer-popup .close {
+    opacity: 1;
+    position: relative;
+}
+
+.offer-popup .close span {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #12373b;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+    left: -27px;
+    top: -10px;
+    z-index: 1;
+}
+
+.offer-popup .contact {
+    position: absolute;
+    bottom: 28px;
+    font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    line-height: 33px;
+    display: flex;
+    left: 18px;
+}
+
+.offer-popup .contact a {
+    text-decoration: none;
+    color: #4b4949;
+}
+
+.offer-whatsapp-icon {
+    position: relative;
+    left: 6px;
+}
+
+.offer-whatsapp-icon img {
+    width: 30px;
+}
+
+.offer-popup .book-btn {
+    position: absolute;
+    bottom: 112px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'poppins';
+    color: #fff;
+    background: #70b54d;
+    padding: 7px 20px;
+    border-radius: 17px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .offer-popup {
+        padding: 12px;
+    }
+
+    .offer-popup .contact {
+        font-size: 14px;
+        bottom: 28px;
+    }
+
+    .offer-popup .book-btn {
+        bottom: 98px;
+        left: 45px;
+        font-size: 19px;
+        font-weight: 600;
+        padding: 7px 27px;
+    }
+
+    /*.offer-popup .contact {
+                bottom: 55px;
+                font-size: 14px;
+                left: 51px;
+                line-height: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+        .offer-whatsapp-icon {
+            left: 0;
+        }
+
+        .modal-dialog {
+            margin: auto;
+        }
+
+        .modal-header .close {
+            background-color: #ffffff00;
+            font-size: 30px;
+            color: #ffffff;
+            height: 25px;
+            margin-bottom: 0px;
+        }
+
+        .popup-call {
+            padding: 9px 14px;
+            background: #38888f;
+            color: #fff !important;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+            .popup-call span {
+                display: none;
+            }*/
+}
+
+/*.modal-dialog {
+        transform: translateY(-50%);
+        max-width: 80%;*/
+/* Adjust the maximum width as needed */
+/*height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }*/
+.modal-dialog {
+    max-width: 500px;
+    /* margin: 1.75rem 1rem; */
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #112b3d !important;
+    background: linear-gradient(to top, #06323a, #078792);
+    color: #fff;
+    border-radius: 0px 0px 50px 50px;
+    box-shadow: 0 4px 3px 1px rgb(0 0 0 / 20%);
+    padding: 10px 35px 10px 45px !important;
+}
+
+/* .modal-dialog .book-now {
+        position: absolute;
+        width: 100%;
+        bottom: 111px;
+        background: #70b54d;
+        left: 54px;
+        color: #fff;
+        font-family: 'poppins', sans-serif;
+        font-size: 19px;
+        text-align: center;
+        font-weight: 600;
+        width: auto;
+        padding: 8px 40px;
+        border-radius: 50px;
+    }*/
+
+.top-header {
+    background: linear-gradient(45deg, #fe9f1b, #583e1b, #ffa82f);
+    width: 100%;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header .container a {
+    font-family: math;
+    font-weight: 700;
+}
+
+#navbar .mega-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gt_container--hich1m .gt_switcher .gt_option {
+    height: 70px;
+    position: absolute;
+    width: 129px;
+}
+
+@media screen and (max-width: 576px) {
+    .offer-popup {
+        padding: 12px !important;
+    }
+
+    footer {
+        padding: 34px 0px 100px !important;
+    }
+}
