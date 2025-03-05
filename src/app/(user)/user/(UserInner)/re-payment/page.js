@@ -4,18 +4,16 @@ import { collection, getDocs } from "firebase/firestore";
 const RepaymentPage = async () => {
     let profile;
     let dataAvailable = false;
+
     try {
-        let profileRef = await getDocs(collection(db, "profile"));
-        let profiles = profileRef.docs.map(doc => {
-            return { id: doc.id, ...doc.data() }
-        });
-        if (!profiles.length) {
-            dataAvailable = false;
-        } else {
-            dataAvailable = true;
-        }
-        profile = profiles[0];
+        let response = await fetch("http://localhost:3001/api/profile/get-profile", { next: { revalidate: 60 } });
+        console.log(response, "Response");
+        let jsonData = await response.json();
+        console.log(jsonData.profile)
+        profile = jsonData.profile;
+        dataAvailable = true;
     } catch (err) {
+        console.log(err);
         dataAvailable = false;
     }
 
