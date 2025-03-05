@@ -61,7 +61,7 @@ We have successfully received your loan request, and our team is currently revie
 Loan Details:
 1. Loan Amount: ₹${document.loanamount}
 2. Interest Rate: 6.99% per annum
-3. Tenure: ${document.tenure} years (${document.tenure * 12} months)
+3. Tenure: ${document.tenure} Months (${document.tenure / 12} Years)
 4. Total Repayment Amount: ₹${calculateTotalLoanAmount(document.loanamount), document.tenure * 12, 6.99} (including principal and interest)
 
 Next Steps:
