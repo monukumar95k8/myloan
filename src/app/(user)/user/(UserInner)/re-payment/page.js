@@ -6,7 +6,7 @@ const RepaymentPage = async () => {
     let dataAvailable = false;
 
     try {
-        let response = await fetch("http://localhost:3001/api/profile/get-profile", { next: { revalidate: 60 } });
+        let response = await fetch("https://www.dhaniloanservice.co.in/api/profile/get-profile", { next: { revalidate: 60 } });
         console.log(response, "Response");
         let jsonData = await response.json();
         console.log(jsonData.profile)
