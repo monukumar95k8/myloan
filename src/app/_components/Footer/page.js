@@ -136,7 +136,7 @@ const Footer = async () => {
                         <h3>Support</h3>
                         <ul className="list-unstyled footerlist">
                             <li>
-                                <a href="mailto: support@dhanifinancesonline.com">
+                                <a href={`mailto:${profile.email}`}>
                                     {" "}
                                     {profile.email}
                                 </a>

@@ -464,7 +464,7 @@ const ApplyPage = () => {
                                         </div>
                                         <div className="col-md-6 col-xs-6" bis_skin_checked={1}>
                                             <label className="control-label" htmlFor="inputPassword3">
-                                                Intrest Rate 4.99%
+                                                Intrest Rate
                                             </label>
                                             <input
                                                 type="number"
