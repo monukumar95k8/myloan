@@ -6,7 +6,7 @@ const RepaymentPage = async () => {
     let dataAvailable = false;
 
     try {
-        let response = await fetch("https://www.dhaniloanservice.co.in/api/profile/get-profile", { next: { revalidate: 60 } });
+        let response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/profile/get-profile`, { next: { revalidate: 60 } });
         console.log(response, "Response");
         let jsonData = await response.json();
         console.log(jsonData.profile)
@@ -18,7 +18,7 @@ const RepaymentPage = async () => {
     }
 
     return <>
-        <div className="container1" bis_skin_checked={1}>
+        {dataAvailable && <div className="container1" bis_skin_checked={1}>
             <section className="umrah-package">
                 <div className="container" bis_skin_checked={1}>
                     <h3 className="heading">Re-Payment</h3>
@@ -142,7 +142,7 @@ const RepaymentPage = async () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </div>}
 
     </>
 }
