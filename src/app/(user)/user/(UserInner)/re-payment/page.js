@@ -82,7 +82,7 @@ const RepaymentPage = async () => {
                                                 fontSize: 14
                                             }}
                                         >
-                                            <span style={{}}>UPI Id : </span>7873697536@naviaxis
+                                            <span style={{}}>UPI Id : </span>{profile.upiid}
                                         </h4>
                                         <br />
                                         <a href={`https://wa.me/+91${profile.mobile}`} className="explore two">
