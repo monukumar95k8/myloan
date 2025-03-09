@@ -43,16 +43,21 @@ export async function POST(req) {
             // Convert annual interest rate to monthly interest rate (in decimal)
             const monthlyInterestRate = annualInterestRate / 100 / 12;
 
-            // Calculate the total loan amount due using the formula for compound interest
-            const totalAmountDue = loanAmount * Math.pow(1 + monthlyInterestRate, tenure);
+            // Calculate EMI using the correct formula
+            const EMI = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, tenure)) /
+                (Math.pow(1 + monthlyInterestRate, tenure) - 1);
 
-            // Round the result to two decimal places for currency format
+            // Calculate the total amount to be repaid
+            const totalAmountDue = EMI * tenure;
+
+            // Round to two decimal places
             return totalAmountDue.toFixed(2);
         }
 
 
 
-        let monthlyEmi = calculateEMI(parseInt(document.loanamount), 6.9, parseInt(document.tenure))
+
+        let monthlyEmi = calculateEMI(parseInt(document.loanamount), 6.9, parseInt(document.tenure / 12))
 
         let emailContent = `Dear ${document.name},
 
@@ -62,7 +67,7 @@ Loan Details:
 1. Loan Amount: ₹${document.loanamount}
 2. Interest Rate: 6.99% per annum
 3. Tenure: ${document.tenure} Months (${document.tenure / 12} Years)
-4. Total Repayment Amount: ₹${calculateTotalLoanAmount(document.loanamount), document.tenure * 12, 6.99} (including principal and interest)
+4. Total Repayment Amount: ₹${calculateTotalLoanAmount(document.loanamount, parseInt(document.tenure), 6.99)} (including principal and interest)
 
 Next Steps:
 
