@@ -90,35 +90,36 @@ const MultiStepForm = () => {
     };
 
     function calculateEMI() {
-
-        let interestRate;
-
-        if (profile != null) {
-            interestRate = profile.interestrate / 100
+        if (!profile || !profile.interestrate) {
+            console.error("Interest rate not available");
+            return;
         }
 
+        const interestRate = profile.interestrate; // Use directly in percentage
         const loanAmount = parseFloat(formData.loanamount);
         const loanTenure = parseInt(formData.tenure);
 
         if (loanAmount && loanTenure) {
-            const rateOfInterest = interestRate / 12;  // Monthly interest rate
-            const tenureInMonths = loanTenure;  // Loan tenure in months
+            const rateOfInterest = (interestRate / 100) / 12; // Monthly interest rate
+            const tenureInMonths = loanTenure;
 
-            // EMI formula: EMI = P * r * (1 + r)^n / ((1 + r)^n - 1)
-            // Where:
-            // P = loan amount
-            // r = monthly interest rate
-            // n = number of months
+            let emi;
+            if (rateOfInterest === 0) {
+                // If interest rate is 0%, simple division
+                emi = loanAmount / tenureInMonths;
+            } else {
+                emi = (loanAmount * rateOfInterest * Math.pow(1 + rateOfInterest, tenureInMonths)) /
+                    (Math.pow(1 + rateOfInterest, tenureInMonths) - 1);
+            }
 
-            const emi = (loanAmount * rateOfInterest * Math.pow(1 + rateOfInterest, tenureInMonths)) / (Math.pow(1 + rateOfInterest, tenureInMonths) - 1);
             const totalInterest = (emi * tenureInMonths) - loanAmount;  // Total interest
 
-            // Update the EMI input field
-            setFormData((prev => ({ ...prev, loanemi: emi.toFixed(2), loaninterest: totalInterest.toFixed(2) })))
-            // emiInput.value = emi.toFixed(2);  // Round to 2 decimal places
-
-            // Update the Total Interest field with the total interest calculated
-            // interestRateInput.value = totalInterest.toFixed(2);  // Total interest
+            // Update form data
+            setFormData(prev => ({
+                ...prev,
+                loanemi: emi.toFixed(2),
+                loaninterest: totalInterest.toFixed(2)
+            }));
         }
     };
 
