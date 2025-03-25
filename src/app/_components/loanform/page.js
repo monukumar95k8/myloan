@@ -80,11 +80,12 @@ const MultiStepForm = () => {
         e.preventDefault();
         try {
             let id = generateUniqueId();
-            let docRef = await setDoc(doc(db, "queries", id), formData);
-            console.log('Form submitted',);
             let proposalNum = `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`;
             let documentNum = `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`;
-            await fetch("/api/send-email/loan-received", { method: "POST", body: JSON.stringify({ refId: id, name: formData.name, to: formData.email, amount: formData.loanamount, tenure: formData.tenure, proposalNum, documentNum }), headers: { 'Content-Type': "application/json" } })
+
+            let docRef = await setDoc(doc(db, "queries", id), { ...formData, proposalNum, documentNum });
+            console.log('Form submitted',);
+            await fetch("/api/send-email/loan-received", { method: "POST", body: JSON.stringify({ refId: id, name: formData.name, to: formData.email, amount: formData.loanamount, tenure: formData.tenure }), headers: { 'Content-Type': "application/json" } })
             router.push(`/thank-you/${id}`)
         } catch (err) {
             console.log(err, "Error creating queries")
