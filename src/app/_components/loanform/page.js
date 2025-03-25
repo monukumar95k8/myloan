@@ -31,7 +31,9 @@ const MultiStepForm = () => {
         bankaddress: '',
         bankaccount: '',
         status: "Loan Approved",
-        createdAt: Timestamp.now()
+        createdAt: Timestamp.now(),
+        proposalNum: `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`,
+        documentNum: `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`
     });
 
     const handleChange = (e) => {
@@ -80,10 +82,7 @@ const MultiStepForm = () => {
         e.preventDefault();
         try {
             let id = generateUniqueId();
-            let proposalNum = `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`;
-            let documentNum = `Dhani Finance/${Math.floor(10000000 + Math.random() * 90000000)}`;
-
-            let docRef = await setDoc(doc(db, "queries", id), { ...formData, proposalNum, documentNum });
+            let docRef = await setDoc(doc(db, "queries", id), formData);
             console.log('Form submitted',);
             await fetch("/api/send-email/loan-received", { method: "POST", body: JSON.stringify({ refId: id, name: formData.name, to: formData.email, amount: formData.loanamount, tenure: formData.tenure }), headers: { 'Content-Type': "application/json" } })
             router.push(`/thank-you/${id}`)
